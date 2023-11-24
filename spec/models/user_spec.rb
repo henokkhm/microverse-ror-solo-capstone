@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
   end
 
   # Unit tests for name
-  it '.valid should be true when name and posts_counter are present' do
+  it '.valid should be true when name is present' do
     user = User.new(name: 'Henok')
     expect(user).to be_valid
   end
