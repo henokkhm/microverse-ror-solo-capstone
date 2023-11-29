@@ -17,10 +17,12 @@ end
 RSpec.describe Category, type: :model do
   before(:each) do
     cleanup_henok
+    cleanup_grocery
   end
 
   after(:all) do
     cleanup_henok
+    cleanup_grocery
   end
 
   # Unit tests for name
