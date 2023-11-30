@@ -1,0 +1,10 @@
+<header>
+  <%= link_to 'Back', category_expenses_path(@category) %>
+  <h1>New Expense</h1>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+</header>
+
+<main>
+  <%= render 'form', expense: @expense %>
+</main>
+
