@@ -9,10 +9,14 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(resource)
     if resource.errors.empty?
-      super(resource)
+      categories_path
     else
       # Redirect to the registration page with errors displayed
       new_user_registration_path
     end
+  end
+
+  def after_sign_in_path_for(_resource)
+    categories_path
   end
 end
