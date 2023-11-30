@@ -1,10 +1,10 @@
-# app/controllers/categories_controller.rb
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
   # GET /categories/1
@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   def create
     @category = Category.new(category_params)
+    @category.user = current_user
 
     if @category.save
       redirect_to @category, notice: 'Category was successfully created.'
@@ -41,7 +42,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   def destroy
     @category.destroy
-    redirect_to categories_url, notice: 'Category was successfully destroyed.'
+    redirect_to categories_url, notice: 'Category was successfully deleted.'
   end
 
   private
@@ -51,6 +52,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :icon_url, :user_id)
+    params.require(:category).permit(:name, :icon_url)
   end
 end
