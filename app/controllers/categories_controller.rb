@@ -8,7 +8,12 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/1
-  def show; end
+  def show
+    category_id = params[:category_id]
+    category = Category.find_by(id: category_id)
+    @expenses = category.expenses
+    @expenses_sum = category.expenses.sum(:amount)
+  end
 
   # GET /categories/new
   def new
