@@ -8,9 +8,6 @@ class ExpensesController < ApplicationController
     @expenses = @category.expenses
   end
 
-  # GET /categories/1/expenses/1
-  def show; end
-
   # GET /categories/1/expenses/new
   def new
     @expense = @category.expenses.new
