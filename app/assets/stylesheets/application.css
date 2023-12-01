@@ -25,6 +25,7 @@
   padding-top: 0;
   gap: 2rem;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 header {
@@ -188,12 +189,25 @@ h1 {
   margin: 0 auto;
 }
 
-.buttons-wrapper {
+.buttons-wrapper,
+.green-btn-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   justify-content: stretch;
   align-items: center;
+}
+
+.green-btn-wrapper {
+  background-color: var(--secondary-color);
+  padding: 1.5rem 1rem;
+}
+
+.green-btn {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--white);
+  color: var(--white);
+  width: max-content;
 }
 
 /* ============================================================ */
@@ -230,6 +244,39 @@ input {
   padding: 0.5rem;
   background: var(--white);
   transition: all 100ms ease-in;
+}
+
+/* ============================================================ */
+
+/* Category Pages Styles */
+.category-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hamburger-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.category-header form {
+  width: max-content;
+  margin-left: auto;
+}
+
+.category-header form button {
+  font-size: 0.875rem;
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 0.15rem 0.75rem;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
+.category-header form button:hover {
+  transform: scale(1.04);
 }
 
 /* ============================================================ */

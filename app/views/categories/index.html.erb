@@ -1,4 +1,4 @@
-<header>
+<header class="category-header">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -7,6 +7,7 @@
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
+    class="hamburger-icon"
   >
     <line x1="3" y1="12" x2="21" y2="12"></line>
     <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -14,14 +15,12 @@
   </svg>
 
   <h1>My Categories</h1>
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'sign-out-btn' %> 
 </header>
 
 <main>
-  <%= link_to 'Add New Category', new_category_path %>
-  
   <% if @categories.any? %>
-    <ul>
+    <ul class="items-list">
       <% @categories.each do |category| %>
         <li>
           <%= link_to category do %>
@@ -34,7 +33,10 @@
       <% end %>
     </ul>
   <% else %>
-    <p>You have no categories yet.</p>
+    <p class="p-1">You have not added any categories yet.</p>
   <% end %>
+  <div class="green-btn-wrapper fixed-bottom">
+    <%= link_to 'Add New Category', new_category_path, class: "btn green-btn" %>
+  </div>
 </main>
 
