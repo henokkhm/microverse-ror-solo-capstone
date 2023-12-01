@@ -1,3 +1,17 @@
+/* Custom Properties */
+:root {
+  /* Colors */
+  --primary-color: #3778c2;
+  --primary-color-600: rgb(36, 89, 150);
+  --secondary-color: #5fb523;
+  --text-color: #434b54;
+  --white: #fff;
+  --off-white: #fdfeff;
+  --black: #000;
+}
+
+/* ============================================================ */
+
 /* General Styles */
 body {
   font-family: 'Montserrat', sans-serif;
