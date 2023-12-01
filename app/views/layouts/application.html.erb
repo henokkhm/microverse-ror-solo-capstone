@@ -16,15 +16,18 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p> 
-    <p class="alert"><%= alert %></p> 
 
     <div class="container">
+      <div class="snackbar-wrapper">
+        <p class="notice"><%= notice %></p> 
+        <p class="alert"><%= alert %></p> 
+      </div>
       <%= yield %>
     </div>
 
     <script>
       
+      document.addEventListener('DOMContentLoaded', function() {
       // Floating labels for form input elements
       const forms = document.querySelectorAll('form');
 
@@ -49,6 +52,23 @@
         });
       });
       // --------------
+
+      // When page loads, if notice and alert paragraphs
+      // are empty, do not show them
+        const notice = document.querySelector('.notice');
+        const alert = document.querySelector('.alert');
+
+        if (notice && !notice.textContent.trim()) {
+          notice.style.display = 'none';
+          console.log('hiding notice')
+        }
+
+        if (alert && !alert.textContent.trim()) {
+          alert.style.display = 'none';
+          console.log('hiding <al></al>ert')
+        }
+      });
+      // ------------
 
     </script>
   </body>

@@ -40,9 +40,49 @@ header h2 {
   margin-top: 0;
 }
 
+h1 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.snackbar-wrapper {
+  position: absolute;
+  right: 0;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  opacity: 1;
+  animation: fadeOut 1.5s ease-in forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 .notice,
 .alert {
-  position: absolute;
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  border-radius: 2px;
+  background-color: var(--white);
+}
+
+.notice {
+  color: rgb(8, 153, 35);
+}
+
+.alert {
+  color: rgb(163, 27, 27);
 }
 
 /* ============================================================ */
@@ -119,6 +159,10 @@ header h2 {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.p-1 {
+  padding: 1rem;
 }
 
 .fixed-bottom {
