@@ -4,7 +4,7 @@
   --primary-color: #3778c2;
   --primary-color-600: rgb(36, 89, 150);
   --secondary-color: #5fb523;
-  --text-color: #434b54;
+  --text-color: #555f6a;
   --white: #fff;
   --off-white: #fdfeff;
   --black: #000;
@@ -13,17 +13,36 @@
 /* ============================================================ */
 
 /* General Styles */
-body {
+.container {
+  position: relative;
   font-family: 'Montserrat', sans-serif;
-  border: 1px solid red;
+  color: var(--text-color);
   min-width: 20rem;
   max-width: 36rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  padding-top: 0;
   gap: 2rem;
-  justify-content: center;
   min-height: 100vh;
+}
+
+header {
+  background: var(--primary-color);
+  padding: 1rem;
+  color: var(--white);
+}
+
+header h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0;
+}
+
+.notice,
+.alert {
+  position: absolute;
 }
 
 /* ============================================================ */
@@ -36,7 +55,6 @@ body {
   text-decoration: none;
   transition: all 100ms ease-in-out;
   text-align: center;
-  max-width: 25rem;
 }
 
 .btn-primary {
@@ -67,6 +85,49 @@ body {
   transform: translateY(3px);
 }
 
+.btn-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================ */
+
+/* Utils */
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.fixed-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 /* ============================================================ */
 
 /* Splash screen styles */
@@ -83,12 +144,48 @@ body {
   margin: 0 auto;
 }
 
-.splash-screen .buttons-wrapper {
+.buttons-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   justify-content: stretch;
   align-items: center;
+}
+
+/* ============================================================ */
+
+/* Form Styles */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid var(--text-color);
+  outline: none;
+  color: var(--text-color);
+  padding: 0.75rem 0.5rem;
+  width: 100%;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field label {
+  position: absolute;
+  top: 0;
+  left: 0.5rem;
+  padding: 0.5rem;
+  background: var(--white);
+  transition: all 100ms ease-in;
 }
 
 /* ============================================================ */

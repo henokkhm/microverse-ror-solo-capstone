@@ -19,6 +19,37 @@
     <p class="notice"><%= notice %></p> 
     <p class="alert"><%= alert %></p> 
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <script>
+      
+      // Floating labels for form input elements
+      const forms = document.querySelectorAll('form');
+
+      forms.forEach((form) => {
+        form.addEventListener('focusin', (event) => {
+          const target = event.target;
+          if (target.tagName === 'INPUT') {
+            const label = target.previousElementSibling;
+            label.style.transform = 'translateY(-1.5rem)';
+            label.style.fontSize = '13px';
+          }
+        });
+
+        form.addEventListener('focusout', (event) => {
+          const target = event.target;
+          if (target.tagName === 'INPUT') {
+            const label = target.previousElementSibling;
+            if (target.value === '') {
+              label.style.transform = 'none';
+            }
+          }
+        });
+      });
+      // --------------
+
+    </script>
   </body>
 </html>

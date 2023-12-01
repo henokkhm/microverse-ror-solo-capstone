@@ -1,6 +1,6 @@
 <main class='splash-screen'>
   <%= image_tag('spendwise-logo.png', alt: 'Spendwise Logo', class: 'logo') %>
-  <div class='buttons-wrapper'>
+  <div class='buttons-wrapper mb-1'>
     <% if user_signed_in? %> 
       <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
     <% else %>
