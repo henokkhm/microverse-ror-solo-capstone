@@ -22,12 +22,12 @@
   <% if @categories.any? %>
     <ul class="categories-list">
       <% @categories.each do |category| %>
-        <li class="category-item">
-          <%= link_to category do %>
+        <%= link_to category do %>
+          <li class="category-item">
             <span class="icon"><%= category.icon %></span>
             <%= link_to category.name, category %>
             <%= link_to edit_category_path(category), class: "ml-auto" do %>
-              <svg fill="#00704F" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+              <svg class="svg-icon" fill="#00704F" height="18px" width="18px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                 viewBox="0 0 512.008 512.008" xml:space="preserve">
                 <g>
                   <g>
@@ -40,9 +40,8 @@
                 </g>
               </svg>
             <% end %>
-            
-            <%= link_to category, method: :delete, data: { confirm: 'Are you sure you want to delete this category?' } do %>
-              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <%= button_to category_path(category), class: 'clr-btn', method: :delete, data: { confirm: 'Are you sure you want to delete this category?' }, form: { class: "clr-form" } do %>
+              <svg class="svg-icon" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.17065 4C9.58249 2.83481 10.6937 2 11.9999 2C13.3062 2 14.4174 2.83481 14.8292 4" stroke="#ED0078" stroke-width="1.5" stroke-linecap="round"/>
                   <path d="M20.5 6H3.49988" stroke="#ED0078" stroke-width="1.5" stroke-linecap="round"/>
                   <path d="M18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5M18.8334 8.5L18.6334 11.5" stroke="#ED0078" stroke-width="1.5" stroke-linecap="round"/>
@@ -51,8 +50,8 @@
               </svg>
             <% end %>
 
-          <% end %>
-        </li>
+          </li> 
+        <% end %>
       <% end %>
     </ul>
   <% else %>
