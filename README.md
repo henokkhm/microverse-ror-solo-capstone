@@ -87,9 +87,9 @@ SpendWise allows users to create a user account and log in. Hence, thier data is
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-👉 [Link to Live Demo](TODO)
+👉 Link to Live Demo
 
-This site is hosted on [Render](https://render.com/).
+This site is hosted on [Render](https://spendwise-3ghi.onrender.com).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
