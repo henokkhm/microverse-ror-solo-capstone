@@ -27,8 +27,8 @@ RSpec.describe Category, type: :model do
 
   # Unit tests for name
   it '.valid should be true when name and icon url are present' do
-    user = User.create(name: 'Henok')
-    category = Category.new(name: 'Grocery', user:, icon: '🏠')
+    henok = User.create(name: 'Henok', email: 'henok1234@example.com', password: '123456')
+    category = Category.new(name: 'Grocery', user: henok, icon: '🏠')
     expect(category).to be_valid
   end
 
@@ -38,13 +38,13 @@ RSpec.describe Category, type: :model do
   end
 
   it '.valid should be false when name is not present' do
-    user = User.create(name: 'Henok')
+    user = User.create(name: 'Henok', email: 'henok1234@example.com', password: '123456')
     category = Category.new(user:, icon: '🏠')
     expect(category).to_not be_valid
   end
 
   it '.valid should be false when icon url is not present' do
-    user = User.create(name: 'Henok')
+    user = User.create(name: 'Henok', email: 'henok1234@example.com', password: '123456')
     category = Category.new(name: 'Grocery', user:)
     expect(category).to_not be_valid
   end
