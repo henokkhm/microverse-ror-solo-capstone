@@ -16,6 +16,7 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: rails_spendwise_app_prod
   username: <%= ENV["PROD_DB_USER"] %>
   password: <%= ENV["PROD_DB_PASSWORD"] %>
