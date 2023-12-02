@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: henokkh
+  password: 123456
+  pool: 5
+
+development:
+  <<: *default
+  database: rails_spendwise_app_dev
+
+test:
+  <<: *default
+  database: rails_spendwise_app_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: rails_spendwise_app_prod
+  username: <%= ENV["PROD_DB_USER"] %>
+  password: <%= ENV["PROD_DB_PASSWORD"] %>

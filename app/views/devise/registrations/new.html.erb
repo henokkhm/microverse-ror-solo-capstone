@@ -1,0 +1,36 @@
+<header>
+  <h2>Sign up</h2>
+</header>
+
+<main>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :full_name %>
+      <%= f.text_field :name, autocomplete: "name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="buttons-wrapper fixed-bottom mb-1">
+      <%= f.submit "Sign up", class: 'btn btn-primary' %>
+      <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</main>
+
+

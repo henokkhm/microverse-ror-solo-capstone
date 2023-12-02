@@ -1,0 +1,64 @@
+<header class="category-header">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="hamburger-icon"
+  >
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+
+  <h1>My Categories</h1>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'sign-out-btn' %> 
+</header>
+
+<main>
+  <% if @categories.any? %>
+    <ul class="categories-list">
+      <% @categories.each do |category| %>
+        <%= link_to category do %>
+          <li class="category-item">
+            <span class="icon"><%= category.icon %></span>
+            <%= link_to category.name, category %>
+            <%= link_to edit_category_path(category), class: "ml-auto", id: "edit-category-#{category.id}-link" do %>
+              <svg class="svg-icon" fill="#00704F" height="18px" width="18px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                viewBox="0 0 512.008 512.008" xml:space="preserve">
+                <g>
+                  <g>
+                    <path d="M504.507,79.905L432.102,7.499c-9.993-9.992-26.206-10.001-36.207,0L51.959,351.435c-2.807,2.807-4.924,6.238-6.187,10.01
+                      L1.313,478.309c-3.063,9.199-0.674,19.336,6.187,26.197c6.861,6.861,16.998,9.25,26.197,6.187l116.864-44.459
+                      c3.772-1.254,7.194-3.371,10.01-6.187l343.936-343.936C514.508,106.11,514.508,89.906,504.507,79.905z M25.608,486.398
+                      l44.459-116.864l72.405,72.405L25.608,486.398z M160.571,423.841l-72.405-72.405L359.696,79.905l72.405,72.405L160.571,423.841z
+                      M450.201,134.211l-72.405-72.405l36.207-36.207l72.405,72.405L450.201,134.211z"/>
+                  </g>
+                </g>
+              </svg>
+            <% end %>
+            <%= button_to category_path(category), class: 'clr-btn', id: "delete-category-#{category.id}-link", method: :delete, data: { confirm: 'Are you sure you want to delete this category?' }, form: { class: "clr-form" } do %>
+              <svg class="svg-icon" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.17065 4C9.58249 2.83481 10.6937 2 11.9999 2C13.3062 2 14.4174 2.83481 14.8292 4" stroke="#ED0078" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M20.5 6H3.49988" stroke="#ED0078" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5M18.8334 8.5L18.6334 11.5" stroke="#ED0078" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M9.5 11L10 16" stroke="#ED0078" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M14.5 11L14 16" stroke="#ED0078" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            <% end %>
+
+          </li> 
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="p-1">You have not added any categories yet.</p>
+  <% end %>
+  <div class="green-btn-wrapper fixed-bottom">
+    <%= link_to 'Add New Category', new_category_path, class: "btn green-btn" %>
+  </div>
+</main>
+
