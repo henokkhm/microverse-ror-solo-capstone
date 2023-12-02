@@ -99,6 +99,14 @@ a {
   color: rgb(163, 27, 27);
 }
 
+.svg-icon {
+  transition: all 100ms ease-in-out;
+}
+
+.svg-icon:hover {
+  transform: scale(1.06) rotateZ(3deg);
+}
+
 /* ============================================================ */
 
 /* Buttons Styles */
@@ -148,9 +156,25 @@ a {
   text-decoration: underline;
 }
 
+.clr-btn,
+.clr-form {
+  border: transparent;
+  background: transparent;
+  padding: 0;
+  width: auto;
+}
+
 /* ============================================================ */
 
 /* Utils */
+.block {
+  display: block;
+}
+
+.bolder {
+  font-weight: 500;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -165,6 +189,10 @@ a {
 
 .mb-1 {
   margin-bottom: 1rem;
+}
+
+.pb-1 {
+  padding-bottom: 1rem;
 }
 
 .mb-2 {
@@ -272,6 +300,20 @@ input, select {
   transition: all 100ms ease-in;
 }
 
+.form-check-input {
+  width: auto;
+}
+
+.form-check {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.categories_checkboxes {
+  background-color: #F5F6F8;
+  padding: 1rem;
+}
+
 /* ============================================================ */
 
 /* Category Pages Styles */
@@ -336,6 +378,25 @@ input, select {
 
 .expenses-list-header .total {
   margin-left: auto;
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expense-item {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.062);
+}
+
+.expense-item .buttons-wrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
 }
 
 span.icon {
