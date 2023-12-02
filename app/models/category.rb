@@ -5,4 +5,8 @@ class Category < ApplicationRecord
 
   belongs_to :user
   has_and_belongs_to_many :expenses, join_table: :expenses_categories
+
+  def icon_and_name
+    "#{icon} #{name}"
+  end
 end

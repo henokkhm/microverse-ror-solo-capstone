@@ -21,7 +21,23 @@
     <%= form.number_field :amount %>
   </div>
 
-  <div class="actions">
-    <%= form.submit 'Save Expense' %>
+   <div>
+    <%= form.label 'Please select one or more categories', class: "pb-1 block bolder"%>
+    <% if @categories.empty? %>
+      <p>No categories yet</p>
+      <%= link_to 'Add New Category', new_category_path, class: "btn btn-primary" %>
+    <% else %>
+
+      <%= form.collection_check_boxes :category_ids, @categories, :id, :icon_and_name, {class: "categories_checkboxes"} do |cb| %>
+        <div class="form-check">
+          <%= cb.check_box class: "form-check-input", checked: false %>
+          <%= cb.label %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="green-btn-wrapper fixed-bottom">
+    <%= form.submit 'Save Expense', class: "btn green-btn" %>
   </div>
 <% end %>

@@ -11,8 +11,8 @@ class CategoriesController < ApplicationController
   def show
     category_id = params[:id]
     @category = Category.find_by(id: category_id)
-    @expenses = @category.expenses
-    @expenses_sum = @category.expenses.sum(:amount)
+    @expenses = Category.find(params[:id]).expenses.order(created_at: :desc).where(author_id: current_user.id)
+    @expenses_sum = @expenses.sum(:amount)
   end
 
   # GET /categories/new
@@ -50,6 +50,7 @@ class CategoriesController < ApplicationController
 
   # DELETE /categories/1
   def destroy
+    puts 'Herrrrrrrrrreeeeeeeeeeeeeeeeeee'
     @category.destroy
     redirect_to categories_url, notice: 'Category was successfully deleted.'
   end
