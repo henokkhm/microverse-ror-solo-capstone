@@ -9,27 +9,31 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
-    category_id = params[:category_id]
-    category = Category.find_by(id: category_id)
-    @expenses = category.expenses
-    @expenses_sum = category.expenses.sum(:amount)
+    category_id = params[:id]
+    @category = Category.find_by(id: category_id)
+    @expenses = @category.expenses
+    @expenses_sum = @category.expenses.sum(:amount)
   end
 
   # GET /categories/new
   def new
     @category = Category.new
+    set_icons
   end
 
   # GET /categories/1/edit
-  def edit; end
+  def edit
+    set_icons
+  end
 
   # POST /categories
   def create
     @category = Category.new(category_params)
     @category.user = current_user
+    set_icons
 
     if @category.save
-      redirect_to @category, notice: 'Category was successfully created.'
+      redirect_to categories_url, notice: 'Category was successfully created.'
     else
       render :new
     end
@@ -52,11 +56,15 @@ class CategoriesController < ApplicationController
 
   private
 
+  def set_icons
+    @icons = ['🍟', '🏛️', '🍴', '🏠', '🏫', '🗑️', '🧾', '💰', '🍹', '✈️', '🚗', '🚇']
+  end
+
   def set_category
     @category = Category.find(params[:id])
   end
 
   def category_params
-    params.require(:category).permit(:name, :icon_url)
+    params.require(:category).permit(:name, :icon)
   end
 end
