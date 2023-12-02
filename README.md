@@ -165,7 +165,9 @@ If you like this project, you can contribute to it. You are also welcome to give
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for teaching and enforcing professional level practices.
+The original user interface design of this mobile app was made by (c) [Gregoire Vella](https://www.behance.net/gregoirevella), retrieved from https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding, used under the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
+
+I would also like to thank Microverse for teaching and enforcing professional level practices.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

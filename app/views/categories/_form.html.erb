@@ -17,11 +17,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :icon_url %>
-    <%= form.text_field :icon_url %>
+    <%= form.label :icon, class: 'form-label' %>
+    <%= form.select :icon, @icons, {}, class: 'select-icons' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="green-btn-wrapper fixed-bottom">
+    <%= form.submit "Save Category", class: "btn green-btn" %>
   </div>
 <% end %>

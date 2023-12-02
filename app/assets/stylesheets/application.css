@@ -1,15 +1,406 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* Custom Properties */
+:root {
+  /* Colors */
+  --primary-color: #3778c2;
+  --primary-color-600: rgb(36, 89, 150);
+  --secondary-color: #5fb523;
+  --text-color: #555f6a;
+  --white: #fff;
+  --off-white: #fdfeff;
+  --black: #000;
+  --bg-gray: #f5f6f8;
+}
+
+/* ============================================================ */
+
+/* General Styles */
+.container {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-color);
+  min-width: 20rem;
+  max-width: 36rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  gap: 2rem;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  background: var(--primary-color);
+  padding: 1rem;
+  color: var(--white);
+}
+
+header h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.snackbar-wrapper {
+  position: absolute;
+  right: 0;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  opacity: 1;
+  animation: fadeOut 1.5s ease-in forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.notice,
+.alert {
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  border-radius: 2px;
+  background-color: var(--white);
+}
+
+.notice {
+  color: rgb(8, 153, 35);
+}
+
+.alert {
+  color: rgb(163, 27, 27);
+}
+
+.svg-icon {
+  transition: all 100ms ease-in-out;
+}
+
+.svg-icon:hover {
+  transform: scale(1.06) rotateZ(3deg);
+}
+
+/* ============================================================ */
+
+/* Buttons Styles */
+.btn {
+  text-transform: uppercase;
+  padding: 0.5rem 2rem;
+  width: 100%;
+  text-decoration: none;
+  transition: all 100ms ease-in-out;
+  text-align: center;
+}
+
+.btn-primary {
+  color: var(--white);
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+  background: var(--primary-color-600);
+}
+
+.btn-primary:active {
+  transform: translateY(3px);
+}
+
+.btn-secondary {
+  color: var(--text-color);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.btn-secondary:hover {
+  border: 1px solid var(--text-color);
+}
+
+.btn-secondary:active {
+  transform: translateY(3px);
+}
+
+.btn-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.clr-btn,
+.clr-form {
+  border: transparent;
+  background: transparent;
+  padding: 0;
+  width: auto;
+}
+
+/* ============================================================ */
+
+/* Utils */
+.block {
+  display: block;
+}
+
+.bolder {
+  font-weight: 500;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.pb-1 {
+  padding-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.fixed-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ============================================================ */
+
+/* Splash screen styles */
+.splash-screen {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  margin-top: auto;
+}
+
+.splash-screen .logo {
+  width: 18rem;
+  margin: 0 auto;
+}
+
+.buttons-wrapper,
+.green-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: stretch;
+  align-items: center;
+}
+
+.green-btn-wrapper {
+  background-color: var(--secondary-color);
+  padding: 1.5rem 1rem;
+}
+
+.green-btn {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--white);
+  color: var(--white);
+  width: max-content;
+}
+
+/* ============================================================ */
+
+/* Form Styles */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+input,
+select {
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid var(--text-color);
+  outline: none;
+  color: var(--text-color);
+  padding: 0.75rem 0.5rem;
+  width: 100%;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field label {
+  position: absolute;
+  top: 0;
+  left: 0.5rem;
+  padding: 0.5rem;
+  background: var(--white);
+  transition: all 100ms ease-in;
+}
+
+.form-check-input {
+  width: auto;
+}
+
+.form-check {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.categories_checkboxes {
+  background-color: #f5f6f8;
+  padding: 1rem;
+}
+
+/* ============================================================ */
+
+/* Category Pages Styles */
+.category-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hamburger-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.category-header form {
+  width: max-content;
+  margin-left: auto;
+}
+
+.category-header form button {
+  font-size: 0.875rem;
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 0.15rem 0.75rem;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
+.category-header form button:hover {
+  transform: scale(1.04);
+}
+
+.categories-list {
+  flex-grow: 1;
+  background-color: var(--bg-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: scroll;
+  padding: 1rem 0;
+}
+
+.category-item {
+  background-color: var(--white);
+  padding: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* ============================================================ */
+
+/* Expenses styles */
+.expenses-list-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.expenses-list-header .total {
+  margin-left: auto;
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expense-item {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.062);
+}
+
+.expense-item .buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+span.icon {
+  font-size: 2.25rem;
+}
+
+/* ============================================================ */
