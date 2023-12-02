@@ -11,6 +11,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [� Presentation video ](#-presentation-video-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -90,6 +91,15 @@ SpendWise allows users to create a user account and log in. Hence, thier data is
 👉 Link to Live Demo
 
 This site is hosted on [Render](https://spendwise-3ghi.onrender.com).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- PRESENTATION VIDEO -->
+
+## 📹 Presentation video <a name="presentation-video"></a>
+
+👉 Here is the link to the [Presentation video](https://www.loom.com/share/25159e6d47df42658bc596b947804b3b?sid=f442b45c-9dcc-4da2-bd76-1324faa4de8f)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
