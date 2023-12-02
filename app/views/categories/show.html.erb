@@ -6,7 +6,9 @@
 
 <main>
   <div>
-    <%= image_tag @category.icon_url, alt: 'Category Icon' %>
+    <span>
+      <%= @category.icon %>
+    </span>
     <h2>Expenses</h2>
     <div>
       <span>Total</span>

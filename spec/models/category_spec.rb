@@ -28,18 +28,18 @@ RSpec.describe Category, type: :model do
   # Unit tests for name
   it '.valid should be true when name and icon url are present' do
     user = User.create(name: 'Henok')
-    category = Category.new(name: 'Grocery', user:, icon_url: 'https://www.flaticon.com/free-icons/groceries')
+    category = Category.new(name: 'Grocery', user:, icon: '🏠')
     expect(category).to be_valid
   end
 
   it '.valid should be false when user is not present' do
-    category = Category.new(name: 'Grocery', icon_url: 'https://www.flaticon.com/free-icons/groceries')
+    category = Category.new(name: 'Grocery', icon: '🏠')
     expect(category).to_not be_valid
   end
 
   it '.valid should be false when name is not present' do
     user = User.create(name: 'Henok')
-    category = Category.new(user:, icon_url: 'https://www.flaticon.com/free-icons/groceries')
+    category = Category.new(user:, icon: '🏠')
     expect(category).to_not be_valid
   end
 
