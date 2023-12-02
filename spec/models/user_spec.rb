@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
 
   # Unit tests for name
   it '.valid should be true when name is present' do
-    user = User.new(name: 'Henok')
+    user = User.new(name: 'Henok', email: 'henok1234@example.com', password: '123456')
     expect(user).to be_valid
   end
 
